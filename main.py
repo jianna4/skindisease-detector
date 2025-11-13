@@ -10,6 +10,23 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = FastAPI(title="Skin Disease Detection API")
+
+ #Add CORS middleware - UPDATE THIS SECTION
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000",  # React development server
+        "http://127.0.0.1:3000",  # Alternative localhost
+        "http://localhost:5500",  # Live Server extension
+        "http://127.0.0.1:5500",  # Alternative Live Server
+        "file://",  # For local HTML files
+        "*"  # Allow all origins (use only in development!)
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # Get Hugging Face token from environment variable
 HF_TOKEN = os.environ.get("HF_TOKEN")
 if HF_TOKEN is None:
