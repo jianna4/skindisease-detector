@@ -5,6 +5,7 @@ import io
 import numpy as np
 import os
 from dotenv import load_dotenv
+from fastapi.middleware.cors import CORSMiddleware
 
 # Load environment variables from .env file
 load_dotenv()
@@ -32,7 +33,7 @@ HF_TOKEN = os.environ.get("HF_TOKEN")
 if HF_TOKEN is None:
     raise ValueError("Hugging Face token not found in environment variable HF_TOKEN")
 
-HF_API_URL = "https://api-inference.huggingface.co/models/jianna4/skin-disease-cnn"
+HF_API_URL = "https://router.huggingface.co/hf-inference/models/jianna4/skin-disease-cnn"
 
 
 headers = {"Authorization": f"Bearer {HF_TOKEN}"}
