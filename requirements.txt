@@ -4,3 +4,4 @@ tensorflow
 pillow
 numpy
 python-dotenv
+python-multipart
