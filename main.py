@@ -3,7 +3,7 @@ from PIL import Image
 import requests
 import io
 import numpy as np
-
+import os
 app = FastAPI(title="Skin Disease Detection API")
 
 HF_API_URL = "https://api-inference.huggingface.co/models/jianna4/skin-disease-cnn"
