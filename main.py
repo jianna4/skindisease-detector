@@ -4,10 +4,15 @@ import requests
 import io
 import numpy as np
 import os
+
 app = FastAPI(title="Skin Disease Detection API")
+# Get Hugging Face token from environment variable
+HF_TOKEN = os.environ.get("HF_TOKEN")
+if HF_TOKEN is None:
+    raise ValueError("Hugging Face token not found in environment variable HF_TOKEN")
 
 HF_API_URL = "https://api-inference.huggingface.co/models/jianna4/skin-disease-cnn"
-HF_TOKEN = ""
+
 
 headers = {"Authorization": f"Bearer {HF_TOKEN}"}
 
