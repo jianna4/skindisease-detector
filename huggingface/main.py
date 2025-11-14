@@ -7,3 +7,6 @@ from PIL import Image # to process images
 #Load the model
 model = tf.keras.models.load_model('skin_disease_model.h5') #huggingface will find this file in your repository
 
+#ddefine the class names
+
+CLASS_NAMES = [Acne,Carcinoma ,Eczema, Keratosis ,Milia ,Rosacea] #Just in the order of your model output dataset
