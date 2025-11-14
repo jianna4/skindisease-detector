@@ -4,3 +4,6 @@ import tensorflow as tf # WE  WILL USE TENSORFLOW TO LOAD OUR MODEL
 import numpy as np # to cnvert images into arrrays
 from PIL import Image # to process images
 
+#Load the model
+model = tf.keras.models.load_model('skin_disease_model.h5') #huggingface will find this file in your repository
+
