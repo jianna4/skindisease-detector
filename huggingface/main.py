@@ -28,3 +28,15 @@ def predict_skin(image):
     predicted_class = CLASS_NAMES[np.argmax(predictions)]
     #argmax, argument of themaximum , gives the index of the highest value in the predictions array eg if predictions = [0.1,0.7,0.2] then argmax will return 1 because 0.7 is the highest value at index 1,whichwill be Carcinoma in our case
     return predicted_class
+
+
+#gradio interface
+
+interface = gr.Interface(
+    fn=predict_skin,
+    inputs=gr.Image(type="pil", label="Upload Skin Image"),
+    outputs=gr.Text(label="Prediction"),
+    title="Skin Disease Classifier",
+    description="Upload an image of a skin area and the model will predict the disease category as either Acne,Carcinoma ,Eczema, Keratosis ,Milia or Rosacea."
+)
+
