@@ -26,5 +26,5 @@ def predict_skin(image):
     # Make prediction
     predictions = model.predict(image)
     predicted_class = CLASS_NAMES[np.argmax(predictions)]
-
+    #argmax, argument of themaximum , gives the index of the highest value in the predictions array eg if predictions = [0.1,0.7,0.2] then argmax will return 1 because 0.7 is the highest value at index 1,whichwill be Carcinoma in our case
     return predicted_class
