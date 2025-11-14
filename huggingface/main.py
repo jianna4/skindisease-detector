@@ -33,8 +33,8 @@ def predict_skin(image):
 #gradio interface
 
 interface = gr.Interface(
-    fn=predict_skin,
-    inputs=gr.Image(type="pil", label="Upload Skin Image"),
+    fn=predict_skin,#the function to call
+    inputs=gr.Image(type="pil", label="Upload Skin Image"), # type of input to accept ...this it the python image library
     outputs=gr.Text(label="Prediction"),
     title="Skin Disease Classifier",
     description="Upload an image of a skin area and the model will predict the disease category as either Acne,Carcinoma ,Eczema, Keratosis ,Milia or Rosacea."
