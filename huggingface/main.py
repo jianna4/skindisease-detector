@@ -20,6 +20,8 @@ def predict_skin(image):
     image = image.resize(INPUT_SIZE)
     image = np.array(image) / 255.0  # Normalize to [0, 1] to make it a smaller number 
     image = np.expand_dims(image, axis=0)  # Add batch dimension Because the model architecture itself was built around batches from the beginning — not just during training.
+    #this will make the image a batch of 1 now the array looks something like [1,224,224,3] instead of [224,224,3]
+
 
     # Make prediction
     predictions = model.predict(image)
