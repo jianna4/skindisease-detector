@@ -9,7 +9,7 @@ model = tf.keras.models.load_model('your_modelcnn.h5') #huggingface will find th
 
 #ddefine the class names
 
-CLASS_NAMES = [Acne,Carcinoma ,Eczema, Keratosis ,Milia ,Rosacea] #Just in the order of your model output dataset
+CLASS_NAMES = ['Acne','Carcinoma' ,'Eczema', 'Keratosis' ,'Milia' ,'Rosacea'] #Just in the order of your model output dataset
 
 #define input size
 INPUT_SIZE = (224,224) #input size of your model
