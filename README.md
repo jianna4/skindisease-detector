@@ -1,0 +1,171 @@
+🩺 Skin Disease Classifier
+A deep learning web application that classifies skin diseases from images using a Convolutional Neural Network (CNN). The app can identify 6 different skin conditions with confidence scores.
+
+https://img.shields.io/badge/Interface-Gradio-FF4B4B?style=for-the-badge
+https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white
+https://img.shields.io/badge/Hugging%2520Face-Spaces-yellow?style=for-the-badge
+
+🌟 Features
+Multi-class Classification: Identifies 6 skin conditions:
+
+🎯 Acne
+
+🎯 Carcinoma
+
+🎯 Eczema
+
+🎯 Keratosis
+
+🎯 Milia
+
+🎯 Rosacea
+
+User-Friendly Interface: Simple drag-and-drop image upload
+
+Real-time Predictions: Instant results with confidence scores
+
+Web Deployment: Accessible via Hugging Face Spaces
+
+🚀 Live Demo
+https://img.shields.io/badge/%F0%9F%A4%97%2520Hugging%2520Face-Spaces-blue
+
+Replace with your actual Hugging Face Space link
+
+🛠️ Technical Stack
+Framework: TensorFlow/Keras
+
+Model Architecture: CNN with 3 Conv2D layers + Dense layers
+
+Frontend: Gradio
+
+Image Processing: PIL, NumPy
+
+Deployment: Hugging Face Spaces
+
+📁 Project Structure
+text
+skin-disease-classifier/
+├── app.py                 # Main application file
+├── requirements.txt       # Python dependencies
+├── your_modelnn.h5       # Trained model file
+├── README.md             # This file
+└── assets/               # Optional: example images
+    ├── example_acne.jpg
+    └── example_eczema.jpg
+🧠 Model Architecture
+python
+model = tf.keras.models.Sequential([
+    Conv2D(32, (3,3), activation='relu', input_shape=(224,224,3)),
+    MaxPooling2D(2,2),
+    Conv2D(64, (3,3), activation='relu'),
+    MaxPooling2D(2,2),
+    Conv2D(128, (3,3), activation='relu'),
+    MaxPooling2D(2,2),
+    Flatten(),
+    Dense(512, activation='relu'),
+    Dropout(0.2),
+    Dense(6, activation='softmax')
+])
+🎯 How to Use
+Visit the app through the Hugging Face Space link
+
+Upload an image of a skin condition
+
+Click Submit or wait for auto-prediction
+
+View results showing the predicted condition and confidence
+
+Supported Image Formats
+JPEG, JPG, PNG
+
+Recommended size: 224x224 pixels
+
+Color images (RGB)
+
+🔧 Local Development
+Prerequisites
+Python 3.8+
+
+pip
+
+Installation
+Clone the repository
+
+bash
+git clone https://huggingface.co/spaces/your-username/skin-disease-classifier
+cd skin-disease-classifier
+Install dependencies
+
+bash
+pip install -r requirements.txt
+Run the application
+
+bash
+python app.py
+Open your browser to http://localhost:7860
+
+Requirements
+txt
+tensorflow-cpu==2.12.0
+gradio==3.50.2
+pillow>=9.0.0
+numpy>=1.21.0
+📊 Dataset & Training
+The model was trained on an augmented skin conditions dataset with the following structure:
+
+text
+Skin_Conditions/
+├── Acne/
+├── Carcinoma/
+├── Eczema/
+├── Keratosis/
+├── Milia/
+└── Rosacea/
+Training Details:
+
+Image Size: 224x224 pixels
+
+Batch Size: 32
+
+Optimizer: Adam (learning_rate=1e-5)
+
+Loss: Sparse Categorical Crossentropy
+
+Regularization: L2 regularization applied
+
+⚠️ Important Disclaimer
+This application is for educational and demonstration purposes only.
+
+🚨 Not Medical Advice: Predictions should not be used for medical diagnosis
+
+🚨 Consult Professionals: Always consult healthcare professionals for medical concerns
+
+🚨 Experimental: Model accuracy may vary with real-world data
+
+🚨 Limitations: Performance depends on training data quality and diversity
+
+🤝 Contributing
+Contributions are welcome! Please feel free to submit issues, feature requests, or pull requests.
+
+Areas for Improvement
+Add more skin conditions
+
+Improve model accuracy
+
+Add multi-language support
+
+Include explainable AI features
+
+Mobile app development
+
+📝 License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+🙏 Acknowledgments
+Dataset providers for skin condition images
+
+Hugging Face for the free hosting platform
+
+TensorFlow/Keras team for the deep learning framework
+
+Gradio for the simple web interface framework
