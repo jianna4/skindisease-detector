@@ -1,9 +1,7 @@
 🩺 Skin Disease Classifier
-A deep learning web application that classifies skin diseases from images using a Convolutional Neural Network (CNN). The app can identify 6 different skin conditions with confidence scores.
+A deep learning web application that classifies skin diseases from images using a Convolutional Neural Network (CNN). The app can identify 6 different skin conditions.
 
-https://img.shields.io/badge/Interface-Gradio-FF4B4B?style=for-the-badge
-https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white
-https://img.shields.io/badge/Hugging%2520Face-Spaces-yellow?style=for-the-badge
+
 
 🌟 Features
 Multi-class Classification: Identifies 6 skin conditions:
@@ -27,9 +25,7 @@ Real-time Predictions: Instant results with confidence scores
 Web Deployment: Accessible via Hugging Face Spaces
 
 🚀 Live Demo
-https://img.shields.io/badge/%F0%9F%A4%97%2520Hugging%2520Face-Spaces-blue
-
-Replace with your actual Hugging Face Space link
+https://jianna4-cnn-new-disease-detector.hf.space/?__theme=system&deep_link=uoCMqXoNH6U
 
 🛠️ Technical Stack
 Framework: TensorFlow/Keras
@@ -49,9 +45,7 @@ skin-disease-classifier/
 ├── requirements.txt       # Python dependencies
 ├── your_modelnn.h5       # Trained model file
 ├── README.md             # This file
-└── assets/               # Optional: example images
-    ├── example_acne.jpg
-    └── example_eczema.jpg
+
 🧠 Model Architecture
 python
 model = tf.keras.models.Sequential([
@@ -136,13 +130,13 @@ Regularization: L2 regularization applied
 ⚠️ Important Disclaimer
 This application is for educational and demonstration purposes only.
 
-🚨 Not Medical Advice: Predictions should not be used for medical diagnosis
+Not Medical Advice: Predictions should not be used for medical diagnosis
 
-🚨 Consult Professionals: Always consult healthcare professionals for medical concerns
+Consult Professionals: Always consult healthcare professionals for medical concerns
 
-🚨 Experimental: Model accuracy may vary with real-world data
+Experimental: Model accuracy may vary with real-world data
 
-🚨 Limitations: Performance depends on training data quality and diversity
+Limitations: Performance depends on training data quality and diversity
 
 🤝 Contributing
 Contributions are welcome! Please feel free to submit issues, feature requests, or pull requests.
@@ -163,7 +157,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 🙏 Acknowledgments
 Dataset providers for skin condition images
-
+/kaggle/input/augmented-skin-conditions-image-dataset/Skin_Conditions
 Hugging Face for the free hosting platform
 
 TensorFlow/Keras team for the deep learning framework
