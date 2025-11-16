@@ -40,3 +40,4 @@ interface = gr.Interface(
     description="Upload an image of a skin area and the model will predict the disease category as either Acne,Carcinoma ,Eczema, Keratosis ,Milia or Rosacea." #description of the app for users
 )
 
+interface.launch() #launch the app
