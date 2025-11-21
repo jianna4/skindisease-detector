@@ -61,3 +61,8 @@ interface.launch(share=True) #launch the app and create public link
 # Mount the Gradio app inside FastAPI
 #this is very important if the inerface is not mounted the fastapi app will not work on huggingface space
 api = gr.mount_gradio_app(api, interface, path="/")
+
+# Only needed for local run (ignored on HF Spaces)
+# this will run the fastapi app on local machine and can be accessed on localhost:7860
+if __name__ == "__main__":
+    uvicorn.run(api, host="0.0.0.0", port=7860)
