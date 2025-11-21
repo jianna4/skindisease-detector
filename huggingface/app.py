@@ -57,3 +57,7 @@ interface = gr.Interface(
 )
 
 interface.launch(share=True) #launch the app and create public link
+
+# Mount the Gradio app inside FastAPI
+#this is very important if the inerface is not mounted the fastapi app will not work on huggingface space
+api = gr.mount_gradio_app(api, interface, path="/")
