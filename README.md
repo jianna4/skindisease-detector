@@ -163,3 +163,7 @@ Hugging Face for the free hosting platform
 TensorFlow/Keras team for the deep learning framework
 
 Gradio for the simple web interface framework
+
+The model has an endpoint ready to use as:https://huggingface.co/spaces/jianna4/cnn_new_disease_detector/predict
+
+you can aslo check out the example of how to setup and use the API in the file exampleuse.py
