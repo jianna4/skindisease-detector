@@ -31,7 +31,21 @@ def predict_skin(image):
     #argmax, argument of themaximum , gives the index of the highest value in the predictions array eg if predictions = [0.1,0.7,0.2] then argmax will return 1 because 0.7 is the highest value at index 1,whichwill be Carcinoma in our case
     return predicted_class
 
+#fastapi setup
 
+api = FastAPI(title="Skin Disease Classifier API")
+@api.post("/predict/")
+async def predict(file: UploadFile = File(...)):
+    image_data = await file.read()
+     # Convert raw bytes to a PIL Image object
+    # BytesIO converts bytes into a file-like object so PIL can read it
+    # '.convert("RGB")' ensures the image has 3 color channels (Red, Green, Blue)
+    image = Image.open(BytesIO(image_data)).convert("RGB")
+    
+    prediction = predict_skin(image)
+    # Return a JSON response containing the prediction
+    # FastAPI automatically converts the Python dict into JSON
+    return {"prediction": prediction}
 #gradio interface
 
 interface = gr.Interface(
