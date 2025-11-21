@@ -7,7 +7,7 @@ import uvicorn  #to deploy the fasapi app
 from fastapi import FastAPI, UploadFile, File
 from io import BytesIO
 #Load the model
-model = tf.keras.models.load_model('your_modelcnn.h5') #huggingface will find this file in your repository
+model = tf.keras.models.load_model('vweryverynew.keras') #huggingface will find this file in your repository
 
 #ddefine the class names
 
