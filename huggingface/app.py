@@ -3,7 +3,9 @@ import gradio as gr #this is what we will use for huggingface space,its our UI
 import tensorflow as tf # WE  WILL USE TENSORFLOW TO LOAD OUR MODEL
 import numpy as np # to cnvert images into arrrays
 from PIL import Image # to process images
-
+import uvicorn  #to deploy the fasapi app
+from fastapi import FastAPI, UploadFile, File
+from io import BytesIO
 #Load the model
 model = tf.keras.models.load_model('your_modelcnn.h5') #huggingface will find this file in your repository
 
