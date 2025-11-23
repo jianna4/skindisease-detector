@@ -31,11 +31,12 @@ TREATMENTS = {
 def predict_skin(image):
     # Preprocess the image
     image = image.resize(INPUT_SIZE)
-    image = np.array(image) / 255.0  # Normalize to [0, 1]
+    #image = np.array(image) / 255.0  # Normalize to [0, 1]...not eeded coz we are using restnet
+    predictions = model.predict(image)
     image = np.expand_dims(image, axis=0)  # Add batch dimension
 
     # Make prediction
-    predictions = model.predict(image)
+
     predicted_class = CLASS_NAMES[np.argmax(predictions)]
     # Get treatment
     treatment = TREATMENTS.get(predicted_class, "No treatment information available.")
