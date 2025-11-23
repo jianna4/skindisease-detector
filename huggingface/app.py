@@ -54,40 +54,19 @@ async def predict(file: UploadFile = File(...)):
 
 
 # 🔥 UPGRADED GRADIO INTERFACE (only this part changed)
-with gr.Blocks(
-    theme=gr.themes.Soft(),
+interface = gr.Interface(
+    fn=predict_skin,  # function to call
+    inputs=gr.Image(type="pil", label="Upload Skin Image"),  # input
+    outputs=gr.Textbox(
+        label="Prediction",
+        lines=5,            # number of lines visible
+        max_lines=10,       # maximum lines if text wraps
+        placeholder="Prediction will appear here..."
+    ),
     title="Skin Disease Classifier",
-    css="footer { margin-top: 20px; text-align: center; color: #888; }"
-) as interface:
-    gr.Markdown(
-        """
-        # 🩺 Skin Disease Classifier
-        Upload a clear image of a skin condition. The model will predict the disease and suggest basic care steps.
-        """
-    )
-    with gr.Row():
-        with gr.Column():
-            img_input = gr.Image(
-                type="pil",
-                label="📸 Upload Skin Image",
-                sources=["upload", "clipboard", "webcam"]
-            )
-        with gr.Column():
-            txt_output = gr.Textbox(
-                label="🔍 Prediction & Treatment Advice",
-                interactive=False,
-                max_lines=6,  # Gives plenty of space for text
-                elem_classes="output-box"
-            )
-    gr.Button("Analyze", variant="primary").click(
-        fn=predict_skin,
-        inputs=img_input,
-        outputs=txt_output
-    )
-    gr.Markdown(
-        "> ⚠️ **Disclaimer**: This tool is for informational purposes only and is not a substitute for professional medical diagnosis or treatment."
-    )
-
+    description="Upload an image of a skin area and the model will predict the disease category as either Acne, Carcinoma, Eczema, Keratosis, Milia or Rosacea."
+)
+interface.launch(share=True) #launch the app and create public link
 
 # Mount the Gradio app inside FastAPI
 api = gr.mount_gradio_app(api, interface, path="/")
