@@ -56,7 +56,7 @@ async def predict(file: UploadFile = File(...)):
 # 🔥 UPGRADED GRADIO INTERFACE (only this part changed)
 interface = gr.Interface(
     fn=predict_skin,  # function to call
-    inputs=gr.Image(type="pil", label="Upload Skin Image"),  # input
+    inputs=gr.Image(type="pil", label="Upload Skin Image",height=300,sources=["upload", "webcam"] ),  # input
     outputs=gr.Textbox(
         label="Prediction",
         lines=5,            # number of lines visible
