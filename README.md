@@ -25,7 +25,7 @@ Real-time Predictions: Instant results with confidence scores
 Web Deployment: Accessible via Hugging Face Spaces
 
 🚀 Live Demo
-https://jianna4-cnn-new-disease-detector.hf.space/?__theme=system&deep_link=uoCMqXoNH6U
+https://jianna4-skin-disease-analysor.hf.space/?__theme=system&deep_link=0EoLSPftkjI
 
 🛠️ Technical Stack
 Framework: TensorFlow/Keras
