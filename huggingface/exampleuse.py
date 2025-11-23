@@ -1,35 +1,45 @@
-import requests
-from io import BytesIO
+from gradio_client import Client, handle_file
+import os
 
-def get_skin_prediction(image_input):
+def analyze_skin_disease(image_path, return_dict=False):
     """
-    Sends an image to the skin classifier API and returns the predicted class.
-
-    Parameters:
-        image_input: str (file path) or bytes (raw image data)
-
+    Analyze skin disease from an image using your Hugging Face model
+    
+    Args:
+        image_path (str): Path to the skin image file
+        return_dict (bool): If True, returns dict with success status
+        
     Returns:
-        str: predicted class (e.g., 'Acne', 'Eczema', etc.)
+        str or dict: Prediction result or dict with details
     """
-    API_URL = "https://huggingface.co/spaces/jianna4/cnn_new_disease_detector/predict/"  # the API endpoint
-
-    # Convert the input into a file-like object
-    if isinstance(image_input, str):
-        file_to_send = open(image_input, "rb")
-    elif isinstance(image_input, bytes):
-        file_to_send = BytesIO(image_input)
-    else:
-        raise ValueError("image_input must be a file path (str) or bytes")
+    # Validate file exists
+    if not os.path.exists(image_path):
+        if return_dict:
+            return {"success": False, "error": f"File not found: {image_path}"}
+        return f"Error: File not found: {image_path}"
     
-    # Send the POST request
-    response = requests.post(API_URL, files={"file": file_to_send})
+    try:
+        # Initialize client and make prediction
+        client = Client("jianna4/skin-disease-analyser")
+        result = client.predict(
+            image=handle_file(image_path),
+            api_name="/predict_skin"
+        )
+        
+        if return_dict:
+            return {
+                "success": True,
+                "prediction": result,
+                "image_path": image_path
+            }
+        return result
+        
+    except Exception as e:
+        error_msg = f"Error analyzing image: {str(e)}"
+        if return_dict:
+            return {"success": False, "error": error_msg, "image_path": image_path}
+        return error_msg
     
-    # Close the file if opened from disk
-    if isinstance(image_input, str):
-        file_to_send.close()
-    
-    # Return prediction or raise error
-    if response.status_code == 200:
-        return response.json()["prediction"]
-    else:
-        raise RuntimeError(f"API request failed: {response.status_code}")
+    # Just get the prediction text
+result = analyze_skin_disease("F:\projects\Skin_detection\skin-detetion backend\image.png")
+print(result)
