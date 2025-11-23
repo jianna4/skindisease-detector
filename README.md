@@ -165,5 +165,7 @@ TensorFlow/Keras team for the deep learning framework
 Gradio for the simple web interface framework
 
 The model has an endpoint ready to use as:https://huggingface.co/spaces/jianna4/cnn_new_disease_detector/predict
+kaggle dataset:https://www.kaggle.com/datasets/syedalinaqvi/augmented-skin-conditions-image-dataset/
+kaggle notebook:https://www.kaggle.com/code/joanwachuka/skindisease2/notebook?scriptVersionId=281234154
 
 you can aslo check out the example of how to setup and use the API in the file exampleuse.py
